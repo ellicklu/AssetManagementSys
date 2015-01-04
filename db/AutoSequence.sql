@@ -14,7 +14,7 @@ insert into assets_management.asset_sequence values('Asset_Info',1,1);
 -- 3 create nextval function 
 DELIMITER $$ 
 DROP FUNCTION IF EXISTS `nextval` $$ 
-CREATE DEFINER=`root`@`%` FUNCTION `nextval`(seq_name VARCHAR(50)) RETURNS int(11)
+CREATE DEFINER=`oracle`@`%` FUNCTION `nextval`(seq_name VARCHAR(50)) RETURNS int(11)
  BEGIN 
 UPDATE asset_sequence 
 SET current_value = current_value + increment 
@@ -26,7 +26,7 @@ DELIMITER ;
 -- 4 create setval function
 DELIMITER $$ 
 DROP FUNCTION IF EXISTS `setval` $$ 
-CREATE DEFINER=`root`@`%` FUNCTION `setval`(seq_name VARCHAR(50), value INTEGER) RETURNS int(11)
+CREATE DEFINER=`oracle`@`%` FUNCTION `setval`(seq_name VARCHAR(50), value INTEGER) RETURNS int(11)
  BEGIN 
 UPDATE asset_sequence 
 SET current_value = value 
@@ -38,7 +38,7 @@ DELIMITER ;
 -- 5 create currval function
 DELIMITER $$ 
 DROP FUNCTION IF EXISTS `currval` $$ 
-CREATE DEFINER=`root`@`%` FUNCTION `currval`(seq_name VARCHAR(50)) RETURNS int(11)
+CREATE DEFINER=`oracle`@`%` FUNCTION `currval`(seq_name VARCHAR(50)) RETURNS int(11)
  BEGIN 
   DECLARE value INTEGER; 
   SET value = 0; 
